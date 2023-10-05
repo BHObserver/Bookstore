@@ -20,17 +20,17 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Math Magicians <a name="about-project"></a>
+# 📖 Bookstore <a name="about-project"></a>
 
 
-**Math Magicians** is a single page website built with React that is can do simple calculations as a simple calculator.
+**Book Store** is a single page application that where books can be added and removed.
 
 ## 🛠 Built With <a name="built-with"></a>
 <ul>
   <li>HTML5</li>
   <li>CSS3</li>
   <li>Vanilla JavaScript (ES6)</li>
-  <li>React</li>
+  <li>React JS</li>
 </ul>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -38,7 +38,7 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Calculator**
+- **Library Management**
 
 
 <!-- GETTING STARTED -->
@@ -68,7 +68,7 @@ Example commands:
 ```sh
   cd my-folder
 
-  git clone https://github.com/BHObserver/math-magicians.git
+  git clone https://github.com/BHObserver/bookstore.git
   
   cd math-magicians
 ```
