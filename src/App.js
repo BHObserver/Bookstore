@@ -1,70 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Provider } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import BookList from './components/BookList';
-import BookForm from './components/BookForm';
-import Navigation from './components/Navigation';
+import store from './redux/store';
+import HomePage from './pages/HomePage';
+import CategoriesPage from './pages/CategoriesPage';
+import Navigation from './components/Navigation'; // Import Navigation
 
 function App() {
-  const [books, setBooks] = useState([]);
-
-  const handleAddBook = (newBook) => {
-    const updatedBooks = [...books, { ...newBook, id: Date.now() }];
-    setBooks(updatedBooks);
-  };
-
-  const handleDeleteBook = (id) => {
-    const updatedBooks = books.filter((book) => book.id !== id);
-    setBooks(updatedBooks);
-  };
-
   return (
-    <>
-      <Navigation />
-      <Routes>
-        <Route
-          path="/"
-          element={(
-            <HomePage
-              handleAddBook={handleAddBook}
-              books={books}
-              handleDeleteBook={handleDeleteBook}
-            />
-)}
-        />
-        <Route path="/categories" element={<CategoriesPage />} />
-      </Routes>
-    </>
+    <Provider store={store}>
+      <div className="App">
+        <Navigation />
+        {' '}
+        {/* Include the Navigation component */}
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage />}
+          />
+          <Route
+            path="/categories"
+            element={<CategoriesPage />}
+          />
+        </Routes>
+      </div>
+    </Provider>
   );
 }
-
-function HomePage({ handleAddBook, books, handleDeleteBook }) {
-  return (
-    <>
-      <BookForm onSubmit={handleAddBook} />
-      <BookList books={books} onDelete={handleDeleteBook} />
-    </>
-  );
-}
-
-function CategoriesPage() {
-  // ... your component code ...
-
-  return <h1>Categories</h1>;
-}
-
-// Prop type validation
-HomePage.propTypes = {
-  handleAddBook: PropTypes.func.isRequired,
-  books: PropTypes.arrayOf(
-    PropTypes.shape({
-      // Define the shape of each book object
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-      title: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  handleDeleteBook: PropTypes.func.isRequired,
-};
 
 export default App;
