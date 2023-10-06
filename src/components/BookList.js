@@ -6,7 +6,6 @@ import Book from './Book';
 const BookList = () => {
   const dispatch = useDispatch();
   const books = useSelector((state) => state.books.books);
-
   // Handle book deletion using Redux action
   const handleDeleteBook = (id) => {
     dispatch(removeBook(id)); // Dispatch the removeBook action from your Redux store
