@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice'; // Import your book-related actions
+import { fetchBooks } from '../redux/books/booksSlice';
 import Book from './Book';
 
 const BookList = () => {
   const dispatch = useDispatch();
   const books = useSelector((state) => state.books.books);
-  // Handle book deletion using Redux action
-  const handleDeleteBook = (id) => {
-    dispatch(removeBook(id)); // Dispatch the removeBook action from your Redux store
-  };
+
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, [dispatch]);
 
   return (
     <div>
       {books.map((book) => (
-        <Book key={book.id} book={book} onDelete={() => handleDeleteBook(book.id)} />
+        <Book key={book.item_id} book={book} bookKey={book.item_id} />
+
       ))}
     </div>
   );
