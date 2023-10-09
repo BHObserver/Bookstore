@@ -1,33 +1,13 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/booksSlice';
+import PropTypes from 'prop-types';
 
-const BookForm = () => {
-  const books = useSelector((state) => state.books.books);
-  const dispatch = useDispatch();
+const BookForm = ({ onSubmit }) => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
 
-  const handleTitle = (event) => {
-    setTitle(event.target.value);
-  };
-
-  const handleAuthor = (event) => {
-    setAuthor(event.target.value);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newBook = {
-      item_id: `item${books.length + 1}`,
-      title,
-      author,
-    };
-
-    // Dispatch the addBook action with the new book
-    dispatch(addBook(newBook));
-
-    // Clear the form inputs
+    onSubmit({ title, author });
     setTitle('');
     setAuthor('');
   };
@@ -38,17 +18,22 @@ const BookForm = () => {
         type="text"
         placeholder="Title"
         value={title}
-        onChange={handleTitle}
+        onChange={(e) => setTitle(e.target.value)}
       />
       <input
         type="text"
         placeholder="Author"
         value={author}
-        onChange={handleAuthor}
+        onChange={(e) => setAuthor(e.target.value)}
       />
       <button type="submit">Add Book</button>
     </form>
   );
+};
+
+// Prop validation
+BookForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired, // onSubmit should be a function and is required
 };
 
 export default BookForm;

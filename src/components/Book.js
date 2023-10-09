@@ -8,7 +8,7 @@ const Book = ({ book }) => {
 
   // Handle book deletion using Redux action
   const handleDeleteBook = () => {
-    dispatch(removeBook(book.item_id)); // Dispatch the removeBook action from your Redux store
+    dispatch(removeBook(book.id)); // Dispatch the removeBook action from your Redux store
   };
 
   return (
@@ -25,7 +25,7 @@ Book.propTypes = {
   book: PropTypes.shape({
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
-    item_id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   }).isRequired,
 };
 
