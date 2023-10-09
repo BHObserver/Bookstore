@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/booksSlice';
 
 const BookForm = () => {
-  const books = useSelector((state) => state.books.books);
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('');
 
   const handleTitle = (event) => {
     setTitle(event.target.value);
@@ -16,12 +16,18 @@ const BookForm = () => {
     setAuthor(event.target.value);
   };
 
+  const handleCategory = (event) => {
+    setCategory(event.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const uniqueId = Math.floor(Math.random() * (10 ** 8)).toString(16);
     const newBook = {
-      item_id: `item${books.length + 1}`,
+      item_id: uniqueId,
       title,
       author,
+      category,
     };
 
     // Dispatch the addBook action with the new book
@@ -30,6 +36,7 @@ const BookForm = () => {
     // Clear the form inputs
     setTitle('');
     setAuthor('');
+    setCategory('');
   };
 
   return (
@@ -45,6 +52,12 @@ const BookForm = () => {
         placeholder="Author"
         value={author}
         onChange={handleAuthor}
+      />
+      <input
+        type="text"
+        placeholder="Catagory"
+        value={category}
+        onChange={handleCategory}
       />
       <button type="submit">Add Book</button>
     </form>

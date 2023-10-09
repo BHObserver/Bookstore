@@ -8,7 +8,8 @@ const Book = ({ book }) => {
 
   // Handle book deletion using Redux action
   const handleDeleteBook = () => {
-    dispatch(removeBook(book.item_id)); // Dispatch the removeBook action from your Redux store
+    // Access the key for this specific book console.log(bookKey);
+    dispatch(removeBook(book.item_id)); // Dispatch the removeBook action with the book's key
   };
 
   return (
