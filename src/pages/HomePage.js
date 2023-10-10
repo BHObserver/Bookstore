@@ -13,8 +13,8 @@ function HomePage() {
 
   return (
     <div>
-      <BookForm onSubmit={handleAddBook} />
       <BookList />
+      <BookForm onSubmit={handleAddBook} />
     </div>
   );
 }
