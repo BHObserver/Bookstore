@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/booksSlice';
+import './form.css';
 
 const BookForm = () => {
   const dispatch = useDispatch();
@@ -40,26 +41,34 @@ const BookForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Title"
-        value={title}
-        onChange={handleTitle}
-      />
-      <input
-        type="text"
-        placeholder="Author"
-        value={author}
-        onChange={handleAuthor}
-      />
-      <input
-        type="text"
-        placeholder="Catagory"
-        value={category}
-        onChange={handleCategory}
-      />
-      <button type="submit">Add Book</button>
+    <form className="add-form">
+      <h2 className="form-header">Add a New Book</h2>
+      <div className="add-form-container">
+        <input
+          type="text"
+          placeholder="Title"
+          value={title}
+          onChange={handleTitle}
+          className="form-input title-input-field"
+        />
+        <input
+          type="text"
+          placeholder="Author"
+          value={author}
+          onChange={handleAuthor}
+          className="form-input author-input-field"
+        />
+        <input
+          type="text"
+          placeholder="Category"
+          value={category}
+          onChange={handleCategory}
+          className="form-input"
+        />
+        <button type="submit" onChange={handleSubmit} className="primary-action-button-big">
+          Add Book
+        </button>
+      </div>
     </form>
   );
 };
