@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.divider {
+    width: 0.125rem;
+    height: 1.5rem;
+    background-color: #e8e8e8;
+    margin: 0 1rem;
+  }
+  
+  .progress-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .circular-progress-container {
+    width: 5.625rem;
+    height: 5.625rem;
+    padding: 0.63rem 0.625rem 0.75rem 0.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .circular-progress-bar {
+    position: absolute;
+    border-radius: 50%;
+    width: 4.25rem;
+    height: 4.25rem;
+    border: 5px solid #307bbe;
+    border-left-color: #e8e8e8;
+    transform: rotate(45deg);
+  }
+  
+  .percent-complete {
+    font-family: "Montserrat", sans-serif;
+    color: #121212;
+    font-size: 2rem;
+  }
+  
+  .completed-label {
+    font-family: "Montserrat", sans-serif;
+    color: #121212;
+    font-size: 0.875rem;
+    opacity: 0.5;
+  }
+  
+  .progress-divider {
+    width: 0.125rem;
+    height: 4.375rem;
+    margin: 0 3.688rem 0 4.938rem;
+    background-color: #e8e8e8;
+  }
+  
+  .current-chapter-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 14rem;
+    font-family: "Roboto Slab", serif;
+    font-weight: 300;
+  }
+  
+  .chapter-label {
+    font-family: "Roboto Slab", serif;
+    font-weight: 300;
+    color: #121212;
+    font-size: 0.813rem;
+    opacity: 0.5;
+  }
+  
+  .current-chapter-title {
+    margin-top: 0.438rem;
+    font-size: 1rem;
+    letter-spacing: -0.4px;
+    font-family: "Roboto Slab", serif;
+    font-weight: 300;
+    color: #121212;
+  }
+  
+  .primary-action-button {
+    cursor: pointer;
+    border: none;
+    background-color: #0290ff;
+    border-radius: 3px;
+    padding: 8px 24px;
+    font-family: "Roboto Slab", serif;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    color: #fff;
+  }
+  
+  .horizontal-divider {
+    height: 0.125rem;
+    background-color: #e8e8e8;
+    width: 100%;
+    margin: 2.5rem 0 1.813rem;
+  }
