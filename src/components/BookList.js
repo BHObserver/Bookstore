@@ -12,11 +12,11 @@ const BookList = () => {
   }, [dispatch]);
 
   return (
-    <ul className="content">
+    <div className="content">
       {books.map((book) => (
         <Book key={book.item_id} book={book} bookKey={book.item_id} />
       ))}
-    </ul>
+    </div>
   );
 };
 
