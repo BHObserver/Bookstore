@@ -65,7 +65,7 @@ const BookForm = () => {
           onChange={handleCategory}
           className="form-input"
         />
-        <button type="submit" onChange={handleSubmit} className="primary-action-button-big">
+        <button type="submit" onClick={handleSubmit} className="primary-action-button-big">
           Add Book
         </button>
       </div>
